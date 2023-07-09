@@ -1,0 +1,16 @@
+.old/
+.debug/
+*.aux
+*.bbl
+*.bcf
+*.blg
+*-blx.bib
+*.brf
+*.log
+*.nav
+*.out
+*.run.xml
+*.snm
+*.synctex
+*.synctex.gz
+*.toc
