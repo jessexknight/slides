@@ -8,6 +8,7 @@
 \DeclareStringOption[000000]{color}
 \DeclareStringOption[1.2]{stretch}
 \DeclareBoolOption[true]{sectionslide}
+\DeclareBoolOption[true]{pause}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{beamer}}
 \ExecuteOptions{}
 \ProcessKeyvalOptions*
@@ -57,13 +58,16 @@
       \usebeamerfont{title}\insertsection\par%
     \end{beamercolorbox}\end{frame}}\fi
 % misc
+\ifslides@pause\beamerdefaultoverlayspecification{<+(1)->}\fi
 \newcommand{\contact}[1]{\gdef\@contact{#1}}\contact{}
-\newcommand{\paragraph}[1]{\par\textbf{#1}\par}
-\newcommand{\idem}{\par\leavevmode%
+\newcommand{\paragraph}[1]{\@ifstar{\@paragraph{#1}}{\ifslides@pause\pause\fi\@paragraph{#1}}}
+\newcommand{\@paragraph}[1]{\par\textbf{#1}\par}
+\newcommand{\itom}{\@ifstar{\@itom}{\ifslides@pause\pause\fi\@itom}}
+\newcommand{\@itom}{\par\leavevmode%
   \hskip\dimexpr\leftmargini-\labelwidth-\labelsep
   \hbox to\labelwidth{\hss\usebeamercolor[fg]{itemize item}\usebeamertemplate{itemize item}}%
   \hskip\labelsep}
-\frenchspacing
 \setlength{\abovecaptionskip}{1ex}
 \setlength{\belowcaptionskip}{1ex}
+\frenchspacing
 % TODO: enumitem?
