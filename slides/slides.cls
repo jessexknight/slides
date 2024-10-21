@@ -60,7 +60,7 @@
 % misc
 \ifslides@pause\beamerdefaultoverlayspecification{<+(1)->}\fi
 \newcommand{\contact}[1]{\gdef\@contact{#1}}\contact{}
-\newcommand{\paragraph}[1]{\@ifstar{\@paragraph{#1}}{\ifslides@pause\pause\fi\@paragraph{#1}}}
+\newcommand{\paragraph}{\@ifstar{\@paragraph}{\ifslides@pause\pause\fi\@paragraph}}
 \newcommand{\@paragraph}[1]{\par\textbf{#1}\par}
 \newcommand{\itom}{\@ifstar{\@itom}{\ifslides@pause\pause\fi\@itom}}
 \newcommand{\@itom}{\par\leavevmode%
